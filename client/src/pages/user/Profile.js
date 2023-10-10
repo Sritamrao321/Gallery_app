@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import UserMenu from "../../components/Layout/UserMenu";
-// import Layout from "./../../components/Layout/Layout";
+import Header from "../../components/Layout/Header";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 import axios from "axios";
 const Profile = () => {
-  //context
+
   const [auth, setAuth] = useAuth();
-  //state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
-  //get user data
+
   useEffect(() => {
     const { email, name, phone, address } = auth?.user;
     setName(name);
@@ -23,7 +22,7 @@ const Profile = () => {
     setAddress(address);
   }, [auth?.user]);
 
-  // form function
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -50,7 +49,8 @@ const Profile = () => {
     }
   };
   return (
-    // <Layout title={"Your Profile"}>
+<>
+<Header/>
       <div className="container-fluid m-3 p-3 dashboard">
         <div className="row">
           <div className="col-md-3">
@@ -121,7 +121,8 @@ const Profile = () => {
           </div>
         </div>
       </div>
-    // </Layout>
+    <Header/>
+    </>
   );
 };
 
