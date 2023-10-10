@@ -13,10 +13,11 @@ import ChatContainer from "./components/ChatContainer/ChatContainer";
 function App() {
   return (
     <>
+
+
       <Routes>
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
-          
           <Route path="user/profile" element={<Profile />} />
         </Route>
         <Route path="/homepage" element={<HomePage />} />
@@ -26,6 +27,8 @@ function App() {
         <Route path="*" element={<Pagenotfound />} />
         <Route path="/chat" element={<ChatContainer />} />
       </Routes>
+
+
     </>
   );
 }
